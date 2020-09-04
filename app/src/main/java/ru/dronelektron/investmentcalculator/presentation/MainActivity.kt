@@ -1,7 +1,8 @@
-package ru.dronelektron.investmentcalculator
+package ru.dronelektron.investmentcalculator.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ru.dronelektron.investmentcalculator.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
