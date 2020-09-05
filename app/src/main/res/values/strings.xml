@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Investment Calculator</string>
+
+    <string name="invest_form_balance_hint">Balance</string>
+    <string name="invest_form_percent_hint">Percent</string>
+    <string name="invest_form_iterations_hint">Iterations</string>
+    <string name="invest_form_calculate">Calculate</string>
 </resources>
