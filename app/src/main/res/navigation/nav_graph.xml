@@ -8,7 +8,19 @@
     <fragment
         android:id="@+id/invest_form_fragment"
         android:name="ru.dronelektron.investmentcalculator.presentation.investform.InvestFormFragment"
-        android:label="InvestFormFragment"
-        tools:layout="@layout/fragment_invest_form" />
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_invest_form">
+
+        <action
+            android:id="@+id/action_invest_form_fragment_to_investResultFragment"
+            app:destination="@id/invest_result_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/invest_result_fragment"
+        android:name="ru.dronelektron.investmentcalculator.presentation.investresult.InvestResultFragment"
+        android:label="@string/invest_result_label"
+        tools:layout="@layout/fragment_invest_result" />
 
 </navigation>

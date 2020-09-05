@@ -5,4 +5,6 @@
     <string name="invest_form_percent_hint">Percent</string>
     <string name="invest_form_iterations_hint">Iterations</string>
     <string name="invest_form_calculate">Calculate</string>
+
+    <string name="invest_result_label">Result</string>
 </resources>
