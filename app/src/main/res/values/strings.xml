@@ -8,6 +8,7 @@
 
     <string name="invest_result_label">Result</string>
 
+    <string name="profit_iteration_format">Iteration #%d</string>
     <string name="profit_balance_format">%.2f</string>
     <string name="profit_percent_format">%.2f%%</string>
 </resources>

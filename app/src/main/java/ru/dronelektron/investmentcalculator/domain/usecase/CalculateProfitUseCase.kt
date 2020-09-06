@@ -13,7 +13,7 @@ class CalculateProfitUseCase(private val bgDispatcher: CoroutineDispatcher) {
                 val profitBalance = params.balance * multiplier
                 val profitPercent = (profitBalance - params.balance) / params.balance * 100.0
 
-                list.add(Profit(profitBalance, profitPercent))
+                list.add(Profit(iteration, profitBalance, profitPercent))
             }
         }
     }
