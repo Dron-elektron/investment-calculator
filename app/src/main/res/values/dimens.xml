@@ -3,6 +3,6 @@
     <dimen name="margin_default">16dp</dimen>
     <dimen name="margin_invest_form_fields_between">8dp</dimen>
     <dimen name="height_profit">48dp</dimen>
-    <dimen name="margin_profit_top">8dp</dimen>
-    <dimen name="padding_profits_vertical">8dp</dimen>
+    <dimen name="margin_profit_vertical">4dp</dimen>
+    <dimen name="padding_profits_vertical">12dp</dimen>
 </resources>

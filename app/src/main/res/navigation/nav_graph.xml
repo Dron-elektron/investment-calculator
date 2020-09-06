@@ -12,8 +12,12 @@
         tools:layout="@layout/fragment_invest_form">
 
         <action
-            android:id="@+id/action_invest_form_fragment_to_investResultFragment"
-            app:destination="@id/invest_result_fragment" />
+            android:id="@+id/action_invest_form_fragment_to_invest_result_fragment"
+            app:destination="@id/invest_result_fragment"
+            app:enterAnim="@anim/slide_and_fade_in_right"
+            app:exitAnim="@anim/slide_and_fade_out_left"
+            app:popEnterAnim="@anim/slide_and_fade_in_left"
+            app:popExitAnim="@anim/slide_and_fade_out_right" />
 
     </fragment>
 

@@ -1,84 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/balance_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_invest_form_fields_between"
-        android:hint="@string/invest_form_balance_hint"
-        app:layout_constraintEnd_toStartOf="@+id/percent_layout"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <data>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <variable
+            name="investFormViewModel"
+            type="ru.dronelektron.investmentcalculator.presentation.investform.InvestFormViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/balance_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:singleLine="true" />
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_invest_form_fields_between"
+            android:hint="@string/invest_form_balance_hint"
+            app:layout_constraintEnd_toStartOf="@+id/percent_layout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:text="@={investFormViewModel.balance}" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/percent_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_invest_form_fields_between"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_invest_form_fields_between"
-        android:hint="@string/invest_form_percent_hint"
-        app:layout_constraintEnd_toStartOf="@+id/iterations_layout"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/balance_layout"
-        app:layout_constraintTop_toTopOf="parent">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/percent_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:singleLine="true" />
+            android:layout_marginStart="@dimen/margin_invest_form_fields_between"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_invest_form_fields_between"
+            android:hint="@string/invest_form_percent_hint"
+            app:layout_constraintEnd_toStartOf="@+id/iterations_layout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/balance_layout"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:text="@={investFormViewModel.percent}" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/iterations_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_invest_form_fields_between"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_default"
-        android:hint="@string/invest_form_iterations_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/percent_layout"
-        app:layout_constraintTop_toTopOf="parent">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/iterations_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:singleLine="true" />
+            android:layout_marginStart="@dimen/margin_invest_form_fields_between"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:hint="@string/invest_form_iterations_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/percent_layout"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:singleLine="true"
+                android:text="@={investFormViewModel.iterations}" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_default"
-        android:text="@string/invest_form_calculate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/percent_layout" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:onClick="@{() -> investFormViewModel.calculateProfits()}"
+            android:text="@string/invest_form_calculate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/percent_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
