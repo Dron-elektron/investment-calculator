@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import ru.dronelektron.investmentcalculator.App
 import ru.dronelektron.investmentcalculator.R
 import ru.dronelektron.investmentcalculator.databinding.FragmentInvestFormBinding
+import ru.dronelektron.investmentcalculator.presentation.closeKeyboard
 import javax.inject.Inject
 
 class InvestFormFragment : Fragment() {
@@ -41,6 +42,7 @@ class InvestFormFragment : Fragment() {
         investFormViewModel.navigateToResultsEvent.observe(viewLifecycleOwner, { data ->
             data.getDataIfNotHandled()?.let {
                 navigateToResults()
+                closeKeyboard()
             }
         })
     }
