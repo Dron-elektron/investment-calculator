@@ -2,7 +2,6 @@
 <resources>
     <dimen name="margin_default">16dp</dimen>
     <dimen name="margin_default_half">8dp</dimen>
-    <dimen name="margin_invest_form_fields_between">8dp</dimen>
     <dimen name="height_profit">64dp</dimen>
     <dimen name="margin_profit_vertical">4dp</dimen>
     <dimen name="padding_profits_vertical">4dp</dimen>

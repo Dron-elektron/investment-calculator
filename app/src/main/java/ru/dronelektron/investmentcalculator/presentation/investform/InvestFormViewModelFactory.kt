@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import ru.dronelektron.investmentcalculator.domain.usecase.CalculateProfitUseCase
 
 class InvestFormViewModelFactory(
-    private val calculateProfitUseCase: CalculateProfitUseCase
+    private val calculateProfit: CalculateProfitUseCase
 ) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>) = InvestFormViewModel(calculateProfitUseCase) as T
+    override fun <T : ViewModel?> create(modelClass: Class<T>) = InvestFormViewModel(calculateProfit) as T
 }

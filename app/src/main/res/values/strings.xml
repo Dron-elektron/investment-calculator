@@ -5,6 +5,12 @@
     <string name="invest_form_percent_hint">Percent</string>
     <string name="invest_form_iterations_hint">Iterations</string>
     <string name="invest_form_calculate">Calculate</string>
+    <string name="invest_form_error_empty_balance">Input balance</string>
+    <string name="invest_form_error_zero_balance">Balance must be greater than zero</string>
+    <string name="invest_form_error_empty_percent">Input percent</string>
+    <string name="invest_form_error_zero_percent">Percent must be greater than zero</string>
+    <string name="invest_form_error_empty_iterations">Input iterations amount</string>
+    <string name="invest_form_error_zero_iterations">Iterations amount must be greater than zero</string>
 
     <string name="invest_result_label">Result</string>
 

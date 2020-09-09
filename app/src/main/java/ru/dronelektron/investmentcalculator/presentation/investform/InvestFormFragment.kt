@@ -14,6 +14,9 @@ import ru.dronelektron.investmentcalculator.R
 import ru.dronelektron.investmentcalculator.databinding.FragmentInvestFormBinding
 import ru.dronelektron.investmentcalculator.di.annotation.InvestForm
 import ru.dronelektron.investmentcalculator.presentation.closeKeyboard
+import ru.dronelektron.investmentcalculator.presentation.investform.error.BalanceError
+import ru.dronelektron.investmentcalculator.presentation.investform.error.IterationsError
+import ru.dronelektron.investmentcalculator.presentation.investform.error.PercentError
 import javax.inject.Inject
 
 class InvestFormFragment : Fragment() {
@@ -35,18 +38,38 @@ class InvestFormFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.investFormViewModel = investFormViewModel
 
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        investFormViewModel.navigateToResultsEvent.observe(viewLifecycleOwner, { data ->
-            data.getDataIfNotHandled()?.let {
+        investFormViewModel.navigateToResultsEvent.observe(viewLifecycleOwner, { event ->
+            event.getDataIfNotHandled()?.let {
                 navigateToResults()
                 closeKeyboard()
             }
         })
+
+        investFormViewModel.balanceError.observe(viewLifecycleOwner, { error ->
+            binding.balanceLayout.error = when (error) {
+                BalanceError.EMPTY_BALANCE -> getString(R.string.invest_form_error_empty_balance)
+                BalanceError.ZERO_BALANCE -> getString(R.string.invest_form_error_zero_balance)
+                else -> null
+            }
+        })
+
+        investFormViewModel.percentError.observe(viewLifecycleOwner, { error ->
+            binding.percentLayout.error = when (error) {
+                PercentError.EMPTY_PERCENT -> getString(R.string.invest_form_error_empty_percent)
+                PercentError.ZERO_PERCENT -> getString(R.string.invest_form_error_zero_percent)
+                else -> null
+            }
+        })
+
+        investFormViewModel.iterationsError.observe(viewLifecycleOwner, { error ->
+            binding.iterationsLayout.error = when (error) {
+                IterationsError.EMPTY_ITERATIONS -> getString(R.string.invest_form_error_empty_iterations)
+                IterationsError.ZERO_ITERATIONS -> getString(R.string.invest_form_error_zero_iterations)
+                else -> null
+            }
+        })
+
+        return binding.root
     }
 
     private fun navigateToResults() {

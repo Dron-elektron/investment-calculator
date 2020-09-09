@@ -18,14 +18,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/balance_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_default"
             android:layout_marginTop="@dimen/margin_default"
-            android:layout_marginEnd="@dimen/margin_invest_form_fields_between"
+            android:layout_marginEnd="@dimen/margin_default"
             android:hint="@string/invest_form_balance_hint"
-            app:layout_constraintEnd_toStartOf="@+id/percent_layout"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:errorEnabled="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -41,16 +40,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/percent_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_invest_form_fields_between"
-            android:layout_marginTop="@dimen/margin_default"
-            android:layout_marginEnd="@dimen/margin_invest_form_fields_between"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
             android:hint="@string/invest_form_percent_hint"
-            app:layout_constraintEnd_toStartOf="@+id/iterations_layout"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/balance_layout"
-            app:layout_constraintTop_toTopOf="parent">
+            app:errorEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/balance_layout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -64,16 +61,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/iterations_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_invest_form_fields_between"
-            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_default"
             android:layout_marginEnd="@dimen/margin_default"
             android:hint="@string/invest_form_iterations_hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/percent_layout"
-            app:layout_constraintTop_toTopOf="parent">
+            app:errorEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/percent_layout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -88,13 +83,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_default"
-            android:layout_marginTop="@dimen/margin_default"
             android:layout_marginEnd="@dimen/margin_default"
             android:onClick="@{() -> investFormViewModel.calculateProfits()}"
             android:text="@string/invest_form_calculate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/percent_layout" />
+            app:layout_constraintTop_toBottomOf="@id/iterations_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
