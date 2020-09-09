@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import ru.dronelektron.investmentcalculator.App
 import ru.dronelektron.investmentcalculator.R
 import ru.dronelektron.investmentcalculator.databinding.FragmentInvestFormBinding
+import ru.dronelektron.investmentcalculator.di.annotation.InvestForm
 import ru.dronelektron.investmentcalculator.presentation.closeKeyboard
 import javax.inject.Inject
 
@@ -19,6 +20,7 @@ class InvestFormFragment : Fragment() {
     private val investFormViewModel by activityViewModels<InvestFormViewModel> { investFormViewModelFactory }
 
     @Inject
+    @InvestForm
     lateinit var investFormViewModelFactory: ViewModelProvider.Factory
 
     override fun onAttach(context: Context) {
