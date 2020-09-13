@@ -26,7 +26,7 @@ class CalculateProfitUseCaseTest {
         val profits = calculateProfit(params)
 
         assertEquals(1, profits.size)
-        assertProfit(Profit(1025.0, 2.5), profits.first())
+        assertProfit(Profit(1, 1025.0, 2.5), profits.first())
     }
 
     @Test
@@ -35,7 +35,7 @@ class CalculateProfitUseCaseTest {
         val profits = calculateProfit(params)
 
         assertEquals(8, profits.size)
-        assertProfit(Profit(1218.4, 21.84), profits.last())
+        assertProfit(Profit(8, 1218.4, 21.84), profits.last())
     }
 
     private fun assertProfit(expectedProfit: Profit, actualProfit: Profit) {
