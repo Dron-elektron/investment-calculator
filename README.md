@@ -20,4 +20,5 @@ Sample application for Android which helps you to calculate compound interest
 * Kotlin coroutines
 * Dagger 2
 * JUnit 4
+* MockK
 * Espresso
