@@ -6,7 +6,7 @@ import ru.dronelektron.investmentcalculator.domain.model.Profit
 import kotlin.math.pow
 
 class CalculateProfitUseCase(private val bgDispatcher: CoroutineDispatcher) {
-    suspend operator fun invoke(params: Params) = withContext(bgDispatcher) {
+    suspend operator fun invoke(params: Params): List<Profit> = withContext(bgDispatcher) {
         mutableListOf<Profit>().also { list ->
             for (iteration in 1..params.iterations) {
                 val multiplier = getMultiplier(params.percent, iteration)
