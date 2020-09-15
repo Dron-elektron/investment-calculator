@@ -10,6 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_invest_form_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="true"
@@ -29,6 +30,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/invest_form_balance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
@@ -50,6 +52,7 @@
             app:layout_constraintTop_toBottomOf="@id/balance_layout">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/invest_form_percent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
@@ -71,6 +74,7 @@
             app:layout_constraintTop_toBottomOf="@id/percent_layout">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/invest_form_iterations"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -80,6 +84,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/invest_form_calculate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_default"
