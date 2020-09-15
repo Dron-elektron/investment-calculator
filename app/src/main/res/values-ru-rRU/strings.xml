@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Investment Calculator</string>
+
+    <string name="invest_form_balance_hint">Баланс</string>
+    <string name="invest_form_percent_hint">Процент</string>
+    <string name="invest_form_iterations_hint">Шаги</string>
+    <string name="invest_form_calculate">Рассчитать</string>
+    <string name="invest_form_error_empty_balance">Введите баланс</string>
+    <string name="invest_form_error_zero_balance">Баланс должен быть больше нуля</string>
+    <string name="invest_form_error_empty_percent">Введите процент</string>
+    <string name="invest_form_error_zero_percent">Процент должен быть больше нуля</string>
+    <string name="invest_form_error_empty_iterations">Введите количество шагов</string>
+    <string name="invest_form_error_zero_iterations">Количество шагов должно быть больше нуля</string>
+
+    <string name="invest_result_label">Результат</string>
+
+    <string name="profit_iteration_format">Итерация #%d</string>
+</resources>
