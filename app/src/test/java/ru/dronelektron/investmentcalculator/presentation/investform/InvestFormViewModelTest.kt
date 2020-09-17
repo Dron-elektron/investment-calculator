@@ -17,12 +17,10 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import ru.dronelektron.investmentcalculator.domain.FieldError
 import ru.dronelektron.investmentcalculator.domain.model.Profit
 import ru.dronelektron.investmentcalculator.domain.usecase.CalculateProfitUseCase
 import ru.dronelektron.investmentcalculator.presentation.Event
-import ru.dronelektron.investmentcalculator.presentation.investform.error.BalanceError
-import ru.dronelektron.investmentcalculator.presentation.investform.error.IterationsError
-import ru.dronelektron.investmentcalculator.presentation.investform.error.PercentError
 
 @ExperimentalCoroutinesApi
 class InvestFormViewModelTest {
@@ -49,17 +47,17 @@ class InvestFormViewModelTest {
 
     @Test
     fun calculateProfits_whenBalanceIsNull() {
-        testBalance(null, BalanceError.EMPTY_BALANCE)
+        testBalance(null, FieldError.EMPTY_FIELD)
     }
 
     @Test
     fun calculateProfits_whenBalanceIsEmpty() {
-        testBalance("", BalanceError.EMPTY_BALANCE)
+        testBalance("", FieldError.EMPTY_FIELD)
     }
 
     @Test
     fun calculateProfits_whenBalanceIsZero() {
-        testBalance("0", BalanceError.ZERO_BALANCE)
+        testBalance("0", FieldError.ZERO_FIELD)
     }
 
     @Test
@@ -69,17 +67,17 @@ class InvestFormViewModelTest {
 
     @Test
     fun calculateProfits_whenPercentIsNull() {
-        testPercent(null, PercentError.EMPTY_PERCENT)
+        testPercent(null, FieldError.EMPTY_FIELD)
     }
 
     @Test
     fun calculateProfits_whenPercentIsEmpty() {
-        testPercent("", PercentError.EMPTY_PERCENT)
+        testPercent("", FieldError.EMPTY_FIELD)
     }
 
     @Test
     fun calculateProfits_whenPercentIsZero() {
-        testPercent("0", PercentError.ZERO_PERCENT)
+        testPercent("0", FieldError.ZERO_FIELD)
     }
 
     @Test
@@ -89,17 +87,17 @@ class InvestFormViewModelTest {
 
     @Test
     fun calculateProfits_whenIterationsIsNull() {
-        testIterations(null, IterationsError.EMPTY_ITERATIONS)
+        testIterations(null, FieldError.EMPTY_FIELD)
     }
 
     @Test
     fun calculateProfits_whenIterationsIsEmpty() {
-        testIterations("", IterationsError.EMPTY_ITERATIONS)
+        testIterations("", FieldError.EMPTY_FIELD)
     }
 
     @Test
     fun calculateProfits_whenIterationsIsZero() {
-        testIterations("0", IterationsError.ZERO_ITERATIONS)
+        testIterations("0", FieldError.ZERO_FIELD)
     }
 
     @Test
@@ -139,7 +137,7 @@ class InvestFormViewModelTest {
         viewModel.navigateToResultsEvent.removeObserver(navigateToResultsObserver)
     }
 
-    private fun testBalance(balance: String?, error: BalanceError?) {
+    private fun testBalance(balance: String?, error: FieldError?) {
         viewModel.balance.value = balance
 
         viewModel.calculateProfits()
@@ -147,8 +145,7 @@ class InvestFormViewModelTest {
         assertEquals(error, viewModel.balanceError.value)
     }
 
-    private fun testPercent(percent: String?, error: PercentError?) {
-        viewModel.balance.value = DEFAULT_BALANCE
+    private fun testPercent(percent: String?, error: FieldError?) {
         viewModel.percent.value = percent
 
         viewModel.calculateProfits()
@@ -156,9 +153,7 @@ class InvestFormViewModelTest {
         assertEquals(error, viewModel.percentError.value)
     }
 
-    private fun testIterations(iterations: String?, error: IterationsError?) {
-        viewModel.balance.value = DEFAULT_BALANCE
-        viewModel.percent.value = DEFAULT_PERCENT
+    private fun testIterations(iterations: String?, error: FieldError?) {
         viewModel.iterations.value = iterations
 
         viewModel.calculateProfits()

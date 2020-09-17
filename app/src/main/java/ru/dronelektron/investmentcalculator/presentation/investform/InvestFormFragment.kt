@@ -13,10 +13,8 @@ import ru.dronelektron.investmentcalculator.App
 import ru.dronelektron.investmentcalculator.R
 import ru.dronelektron.investmentcalculator.databinding.FragmentInvestFormBinding
 import ru.dronelektron.investmentcalculator.di.annotation.InvestForm
+import ru.dronelektron.investmentcalculator.domain.FieldError
 import ru.dronelektron.investmentcalculator.presentation.closeKeyboard
-import ru.dronelektron.investmentcalculator.presentation.investform.error.BalanceError
-import ru.dronelektron.investmentcalculator.presentation.investform.error.IterationsError
-import ru.dronelektron.investmentcalculator.presentation.investform.error.PercentError
 import javax.inject.Inject
 
 class InvestFormFragment : Fragment() {
@@ -47,24 +45,24 @@ class InvestFormFragment : Fragment() {
 
         investFormViewModel.balanceError.observe(viewLifecycleOwner, { error ->
             binding.balanceLayout.error = when (error) {
-                BalanceError.EMPTY_BALANCE -> getString(R.string.invest_form_error_empty_balance)
-                BalanceError.ZERO_BALANCE -> getString(R.string.invest_form_error_zero_balance)
+                FieldError.EMPTY_FIELD -> getString(R.string.invest_form_error_empty_balance)
+                FieldError.ZERO_FIELD -> getString(R.string.invest_form_error_zero_balance)
                 else -> null
             }
         })
 
         investFormViewModel.percentError.observe(viewLifecycleOwner, { error ->
             binding.percentLayout.error = when (error) {
-                PercentError.EMPTY_PERCENT -> getString(R.string.invest_form_error_empty_percent)
-                PercentError.ZERO_PERCENT -> getString(R.string.invest_form_error_zero_percent)
+                FieldError.EMPTY_FIELD -> getString(R.string.invest_form_error_empty_percent)
+                FieldError.ZERO_FIELD -> getString(R.string.invest_form_error_zero_percent)
                 else -> null
             }
         })
 
         investFormViewModel.iterationsError.observe(viewLifecycleOwner, { error ->
             binding.iterationsLayout.error = when (error) {
-                IterationsError.EMPTY_ITERATIONS -> getString(R.string.invest_form_error_empty_iterations)
-                IterationsError.ZERO_ITERATIONS -> getString(R.string.invest_form_error_zero_iterations)
+                FieldError.EMPTY_FIELD -> getString(R.string.invest_form_error_empty_iterations)
+                FieldError.ZERO_FIELD -> getString(R.string.invest_form_error_zero_iterations)
                 else -> null
             }
         })
