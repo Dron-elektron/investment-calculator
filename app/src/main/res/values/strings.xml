@@ -13,6 +13,10 @@
     <string name="invest_form_error_zero_iterations">Iterations amount must be greater than zero</string>
 
     <string name="invest_result_label">Result</string>
+    <string name="invest_result_menu_item_chart_hint">Show chart</string>
+
+    <string name="invest_result_chart_label">Chart</string>
+    <string name="invest_result_chart_balance">Balance</string>
 
     <string name="profit_iteration_format">Iteration #%d</string>
     <string name="profit_balance_format" translatable="false">%.2f</string>
