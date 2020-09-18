@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Investment Calculator</string>
+    <string name="app_name" translatable="false">Investment Calculator</string>
 
     <string name="invest_form_balance_hint">Balance</string>
     <string name="invest_form_percent_hint">Percent</string>

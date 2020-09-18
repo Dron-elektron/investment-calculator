@@ -19,10 +19,35 @@ import javax.inject.Inject
 
 class InvestFormFragment : Fragment() {
     private val investFormViewModel by activityViewModels<InvestFormViewModel> { investFormViewModelFactory }
+    private lateinit var binding: FragmentInvestFormBinding
 
     @Inject
     @InvestForm
     lateinit var investFormViewModelFactory: ViewModelProvider.Factory
+
+    private val balanceErrorObserver = { error: FieldError? ->
+        binding.balanceLayout.error = when (error) {
+            FieldError.EMPTY_FIELD -> getString(R.string.invest_form_error_empty_balance)
+            FieldError.ZERO_FIELD -> getString(R.string.invest_form_error_zero_balance)
+            else -> null
+        }
+    }
+
+    private val percentErrorObserver = { error: FieldError? ->
+        binding.percentLayout.error = when (error) {
+            FieldError.EMPTY_FIELD -> getString(R.string.invest_form_error_empty_percent)
+            FieldError.ZERO_FIELD -> getString(R.string.invest_form_error_zero_percent)
+            else -> null
+        }
+    }
+
+    private val iterationsErrorObserver = { error: FieldError? ->
+        binding.iterationsLayout.error = when (error) {
+            FieldError.EMPTY_FIELD -> getString(R.string.invest_form_error_empty_iterations)
+            FieldError.ZERO_FIELD -> getString(R.string.invest_form_error_zero_iterations)
+            else -> null
+        }
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -31,41 +56,20 @@ class InvestFormFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = FragmentInvestFormBinding.inflate(inflater, container, false)
-
+        binding = FragmentInvestFormBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.investFormViewModel = investFormViewModel
 
         investFormViewModel.navigateToResultsEvent.observe(viewLifecycleOwner, { event ->
             event.getDataIfNotHandled()?.let {
-                navigateToResults()
                 closeKeyboard()
+                navigateToResults()
             }
         })
 
-        investFormViewModel.balanceError.observe(viewLifecycleOwner, { error ->
-            binding.balanceLayout.error = when (error) {
-                FieldError.EMPTY_FIELD -> getString(R.string.invest_form_error_empty_balance)
-                FieldError.ZERO_FIELD -> getString(R.string.invest_form_error_zero_balance)
-                else -> null
-            }
-        })
-
-        investFormViewModel.percentError.observe(viewLifecycleOwner, { error ->
-            binding.percentLayout.error = when (error) {
-                FieldError.EMPTY_FIELD -> getString(R.string.invest_form_error_empty_percent)
-                FieldError.ZERO_FIELD -> getString(R.string.invest_form_error_zero_percent)
-                else -> null
-            }
-        })
-
-        investFormViewModel.iterationsError.observe(viewLifecycleOwner, { error ->
-            binding.iterationsLayout.error = when (error) {
-                FieldError.EMPTY_FIELD -> getString(R.string.invest_form_error_empty_iterations)
-                FieldError.ZERO_FIELD -> getString(R.string.invest_form_error_zero_iterations)
-                else -> null
-            }
-        })
+        investFormViewModel.balanceError.observe(viewLifecycleOwner, balanceErrorObserver)
+        investFormViewModel.percentError.observe(viewLifecycleOwner, percentErrorObserver)
+        investFormViewModel.iterationsError.observe(viewLifecycleOwner, iterationsErrorObserver)
 
         return binding.root
     }
