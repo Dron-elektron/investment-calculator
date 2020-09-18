@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Investment Calculator</string>
-
     <string name="invest_form_balance_hint">Баланс</string>
     <string name="invest_form_percent_hint">Процент</string>
     <string name="invest_form_iterations_hint">Шаги</string>
@@ -14,6 +12,10 @@
     <string name="invest_form_error_zero_iterations">Количество шагов должно быть больше нуля</string>
 
     <string name="invest_result_label">Результат</string>
+    <string name="invest_result_menu_item_chart_hint">Показать график</string>
+
+    <string name="invest_result_chart_label">График</string>
+    <string name="invest_result_chart_balance">Баланс</string>
 
     <string name="profit_iteration_format">Итерация #%d</string>
 </resources>

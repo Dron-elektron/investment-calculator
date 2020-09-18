@@ -25,6 +25,22 @@
         android:id="@+id/invest_result_fragment"
         android:name="ru.dronelektron.investmentcalculator.presentation.investresult.InvestResultFragment"
         android:label="@string/invest_result_label"
-        tools:layout="@layout/fragment_invest_result" />
+        tools:layout="@layout/fragment_invest_result">
+
+        <action
+            android:id="@+id/action_invest_result_fragment_to_invest_result_chart_fragment"
+            app:destination="@id/invest_result_chart_fragment"
+            app:enterAnim="@anim/slide_and_fade_in_right"
+            app:exitAnim="@anim/slide_and_fade_out_left"
+            app:popEnterAnim="@anim/slide_and_fade_in_left"
+            app:popExitAnim="@anim/slide_and_fade_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/invest_result_chart_fragment"
+        android:name="ru.dronelektron.investmentcalculator.presentation.investresultchart.InvestResultChartFragment"
+        android:label="@string/invest_result_chart_label"
+        tools:layout="@layout/fragment_invest_result_chart" />
 
 </navigation>
